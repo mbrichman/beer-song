@@ -21,6 +21,10 @@
       (check-suffix x)))
 
 
-(defn sing
-  [x & y]
-  (str x (first y) "Hello, World!"))
+(defn sing [verses]
+  (loop [in verses out []]
+    (if (= in 0)
+      out
+      (recur (- in 1)
+        (conj out
+          (verse in))))))
